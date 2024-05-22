@@ -6,4 +6,3 @@
         <h1>Bienvenue a la mairie de Villier</h1>
     </div>
 </div>
-

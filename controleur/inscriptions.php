@@ -1,6 +1,6 @@
 <?php
 
-require_once '../modele/model.php';
+require_once '../modele/modele.php';
 require_once '../helpers/session_helper.php';
 
 class inscriptions {
@@ -26,31 +26,31 @@ class inscriptions {
         if(empty($data['nom']) || empty($data['prenom']) || empty($data['email']) ||
         empty($data['age']) || empty($data['mdp']) || empty($data['mdpRepeat'])){
             flash("register", "Remplisser tout les champs");
-            redirect("../gestion_inscription.php");
+            redirect("../index.php?page=2");
         }
 
         if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
             flash("register", "email Invalide");
-            redirect("../gestion_inscription.php");
+            redirect("../index.php?page=2");
         }
 
         if(strlen($data['mdp']) <3){
             flash("register", "Le mot de passe n'est pas valide");
-            redirect("../gestion_inscription.php");
+            redirect("../index.php?page=2");
         } else if ($data['mdp'] !== $data['mdpRepeat']){
             flash("register", "Le mot de passe ne correspond pas");
-            redirect("../gestion_inscription.php");
+            redirect("../index.php?page=2");
         }
 
         if($this->inscriptionModel->findUserByEmail($data['email'])){
             flash("register", "Cette email est déja pris");
-            redirect("../gestion_inscription.php");
+            redirect("../index.php?page=2");
         }
 
         $data['mdp'] = password_hash($data['mdp'], PASSWORD_DEFAULT);
 
         if($this->inscriptionModel->register($data)){
-            redirect("../connect.php");
+            redirect("../index.php?page=3");
         }else{
             die("Erreur 404");
         }
@@ -67,7 +67,7 @@ class inscriptions {
     
         if(empty($data['email']) || empty($data['mdp'])){
             flash("login", "Remplisser tout les champs");
-            header("location: ../connect.php");
+            header("location: ../index.php?page=3");
             exit();
         }
     
@@ -78,12 +78,12 @@ class inscriptions {
                 $this->createUserSession($loggedInUser);
             }else{
                 flash("login", "Mot de pass incorrect");
-                redirect("../connect.php");
+                redirect("../index.php?page=3");
             }
     
         }else{
             flash("login", "Pas d'email trouver");
-            redirect("../connect.php");
+            redirect("../index.php?page=3");
         }
     }
 
@@ -129,5 +129,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         redirect("../index.php");
     }
 }
+
 
 ?>

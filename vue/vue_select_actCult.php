@@ -1,35 +1,25 @@
-<h3> Liste des activités culturelles </h3>
-<form method="post">
-	Filtrer par : <input type="text" name="filtre"> 
-	<input type="submit" name="Filtrer" value="Filtrer">
+<br><br><br>
+
+<h3> Liste des activite culturel </h3>
+<form method="POST">
+    Filtrer par nom : <input type="text" name="filtre">
+	<input type="submit" name="Filtrer" values="Filtrer">
 </form>
 <br>
-<table border="1"> 
-	<tr>
-		<td> Id activitesCult</td>
-		<td> Date </td>
-		<td> Ville </td>
-		
-		<?php
-			if (isset($_SESSION['role']) && $_SESSION['role']=="admin"){
-				echo "<td><td> Opérations </td>";
-			}
-		?>
-	</tr>
-	<?php
-	if (isset($lesActivitesCults)){
-		foreach ($lesActivitesCults as $uneActiviteCult){
-			echo "<tr>";
-			echo "<td>".$uneActiviteCult['id_actCult']."</td>";
-			echo "<td>".$uneActiviteCult['nom_actCult']."</td>";
-			echo "<td>".$uneActiviteCult['date_actCult']."</td>";
-			echo "<td>".$uneActiviteCult['ville']."</td>";
-
-	if (isset($_SESSION['role']) && $_SESSION['role']=="admin"){
-		
-	}
-			
-		}
-	}
-	?>
+<table border="1">
+    <tr>
+        <td> Nom </td>
+        <td> date </td>
+        <td> statut</td>
+    </tr>
+<?php
+if (isset($lesActivites)){
+    foreach($lesActivites as $uneActivite){
+        echo "<tr>";
+        echo "<td>".$uneActivite['nom']."</td>";
+        echo "<td>".$uneActivite['date_act']."</td>";
+        echo "<td>".$uneActivite['statut']."</td>";
+    }
+}
+?>
 </table>

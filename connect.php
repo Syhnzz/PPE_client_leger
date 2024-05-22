@@ -1,6 +1,4 @@
 <?php
-include("common/header.php");
-include("common/menu.php");
 include_once './helpers/session_helper.php';
 ?>
 
@@ -34,12 +32,16 @@ include_once './helpers/session_helper.php';
 
         <br><br>
 
+    <center>
+
     <form method="POST" action="./controleur/inscriptions.php">
 
-        <p>Mot de passe oublier : <a href="vue/vue_insert_resetmdp.html">Reinitialiser mot de passe</a></p><br>
-        <p>Si vous n'ete pas inscrit, inscrivez vous </p><a href="index.php?page=6">içi</a>
+        <p>Vous avez oublier votre mot de passe ?</p>
+
+        <p>Mot de passe oublier : <div class="form-sub-msg"><a href="./reset_mdp.php">Reinitialiser mot de passe</a></p></div>
+        <br>
+        <p>Si vous n'ete pas inscrit, inscrivez vous </p><a href="index.php?page=2">içi</a>
     </form>
 
-<?php
-require_once("common/footer.html")
-?>
+    </center>
+

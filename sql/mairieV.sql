@@ -57,6 +57,15 @@ create table rdvMairie (
 	foreign key (id_user) references utilisateur(id_user)
 ); 
 
+create table mdp_reset (
+	mdpResetId int(11) not null auto_increment, 
+	mdpResetEmail varchar(100) NOT NULL, 
+    mdpResetSelecteur varchar(100) NOT NULL,
+    mdpResetToken varchar(255) NOT NULL,
+	mdpResetExpires varchar(100) NOT NULL,
+	primary key (mdpResetId)
+);
+
 insert into user values 
 (null, "Olivier", "Paul", "a@gmail.com", "123", "admin"), 
 (null, "Marie", "Lucie", "b@gmail.com", "456", "user"); 
@@ -66,6 +75,13 @@ insert into utilisateur values
 
 insert into enfant values 
 (null, "exemple", "exemple", 13);
+
+insert into activite values
+(null, "Tennis", "2024-07-24", "Sportif"),
+(null, "Foot", "2024-08-15", "Sportif"),
+(null, "Natation", "2024-08-15", "Sportif"),
+(null, "Theatre", "2024-09-02", "Culturel"),
+(null, "Cinema", "2024-07-27", "Culturel");
 
 
 

@@ -1,6 +1,4 @@
 <?php
-    include_once './common/header.php';
-    include("common/menu.php");
     include_once './helpers/session_helper.php';
 
 ?>

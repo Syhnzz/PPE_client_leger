@@ -1,15 +1,48 @@
-<?php
-include("common/header.php");
-include("common/menu.php")
-?>
-
 <br><br><br>
 
-<h2>Liste des activités sportives</h2>
-
 <?php
-require_once("common/footer.html")
+
+require_once("controleur/controleur.php"); 
+	$unControleur = new Controleur ();
 ?>
+
+<h2> Les Activites Sportives </h2>
+<?php
+		$lActivite = null; 
+
+	if (isset($_GET['action'])  && isset($_GET['id_act']))
+	{
+		$action= $_GET['action'];
+		$id_act = $_GET['id_act'];
+
+		switch($action)
+		{
+			case "sup" : $unControleur->deleteActivite($id_act) ; break;
+			case "edit" : 
+			$lActivite= $unControleur->selectWhereActivite ($id_act);
+			break;
+		}
+	}
+		if (isset ($_POST['Filtrer']))
+
+		{
+
+			$filtre = $_POST['filtre'];
+			$lesActivites = $unControleur->searchAllActivites($filtre);
+		}else{
+
+				$lesActivites= $unControleur->selectAllActivites ();
+			}
+		
+            require_once ("./vue/vue_select_actSport.php");
+	
+?>
+
+
+
+
+
+
 
 
 
