@@ -192,16 +192,17 @@ public function selectAllRDVMairies (){
     return $select->fetchAll();
 }
 public function insertRDVMairie ($tab){
-    $requete ="insert into rdvMairie values (null, :rdv_date, :rdv_heure, :id_user);" ;
+    $requete ="insert into rdvMairie values (null, :rdv_date, :rdv_heure, :service, :id_user);" ;
     $donnees =array (   ":rdv_date"=>$tab['date'],
                         ":rdv_heure"=>$tab['heure'],
+                        ":service"=>$tab['service'],
                         ":id_user"=>$tab['id_user']);
     $select = $this->unPDO->prepare ($requete);
     $select->execute ($donnees);
 }
 
     public function deleteRDVMairie ($id_rdv){
-        $requete ="delete from classe where id_rdv = :id_user;";
+        $requete ="delete from rdvMairie where id_rdv = :id_user;";
         $donnees =array (":id_user"=>$id_user);
         $select = $this->unPDO->prepare ($requete);
         $select->execute ($donnees);

@@ -1,8 +1,3 @@
-<?php
-include("common/header.php");
-include("common/menu.php");
-?>
-
 <br><br><br>
 
 <div class="container">
@@ -13,7 +8,7 @@ include("common/menu.php");
                     <div class="card-body">
                         <img src="images/avatar.png" class="rounded-circle" width="150">
                         <div class="mt-3">
-                            <h3> <?php echo explode(" ", $_SESSION['prenom'])[0]; ?> 
+                            <h3> <?php echo explode(" ", $_SESSION['prenom'])[0] ?> 
                             <?php echo explode(" ", $_SESSION['nom'])[0]; ?> </h3>
                             <a href="index.php">Accueil</a>
                             <a href="contact.php">Contact</a>
@@ -53,13 +48,11 @@ include("common/menu.php");
                             <?php echo explode(" ", $_SESSION['age'])[0]; ?>
                             </div>
                         </div>
+                        <br>
+                        <a href="index.php?page=11"><button>Modifier</button></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<?php
-require_once("common/footer.html")
-?>

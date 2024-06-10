@@ -28,19 +28,3 @@
     outline: none;
 }
 
-.inscription-form button{
-    font-size: 18px;
-    font-weight: bold;
-    margin: 20px 0;
-    padding: 10px 15px;
-    width: 50%;
-    border: 0;
-    border-radius: 5px;
-    color: #fff;
-    background-color: #4c86af;
-}
-
-.inscription-form button:hover{
-    background-color: #59ace4;
-}
-

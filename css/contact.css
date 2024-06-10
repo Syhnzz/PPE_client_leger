@@ -47,19 +47,6 @@
     outline: none;
     box-shadow: 0 0 8px #bbb;
 }
-.contact button{
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #4c86af;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.contact button:hover{
-    background-color: #59ace4;
-}
 
 .contact-info{
     text-align: left;

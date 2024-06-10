@@ -26,31 +26,31 @@ class inscriptions {
         if(empty($data['nom']) || empty($data['prenom']) || empty($data['email']) ||
         empty($data['age']) || empty($data['mdp']) || empty($data['mdpRepeat'])){
             flash("register", "Remplisser tout les champs");
-            redirect("../index.php?page=2");
+            redirect("../index.php?page=3");
         }
 
         if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
             flash("register", "email Invalide");
-            redirect("../index.php?page=2");
+            redirect("../index.php?page=3");
         }
 
         if(strlen($data['mdp']) <3){
             flash("register", "Le mot de passe n'est pas valide");
-            redirect("../index.php?page=2");
+            redirect("../index.php?page=3");
         } else if ($data['mdp'] !== $data['mdpRepeat']){
             flash("register", "Le mot de passe ne correspond pas");
-            redirect("../index.php?page=2");
+            redirect("../index.php?page=3");
         }
 
         if($this->inscriptionModel->findUserByEmail($data['email'])){
             flash("register", "Cette email est déja pris");
-            redirect("../index.php?page=2");
+            redirect("../index.php?page=3");
         }
 
         $data['mdp'] = password_hash($data['mdp'], PASSWORD_DEFAULT);
 
         if($this->inscriptionModel->register($data)){
-            redirect("../index.php?page=3");
+            redirect("../index.php?page=4");
         }else{
             die("Erreur 404");
         }
@@ -78,12 +78,12 @@ class inscriptions {
                 $this->createUserSession($loggedInUser);
             }else{
                 flash("login", "Mot de pass incorrect");
-                redirect("../index.php?page=3");
+                redirect("../index.php?page=4");
             }
     
         }else{
             flash("login", "Pas d'email trouver");
-            redirect("../index.php?page=3");
+            redirect("../index.php?page=4");
         }
     }
 
