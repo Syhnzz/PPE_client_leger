@@ -5,7 +5,7 @@
 <br><br>
 
 <p>Ici vous pourrez inscrire votre enfant au centre de loisir</p>
-
+<center>
 <form method="POST">
     <table>
         <tr>
@@ -38,3 +38,5 @@
     $lEnfant['id_enfant'].'" >' : ''
 ?>  
 </form>
+
+</center>

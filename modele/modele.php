@@ -260,6 +260,28 @@ public function insertEnfant ($tab){
         $select->execute ($donnees);
     }
 
+    /********************* Gestion du profil     ********************/
+
+    public function selectAllProfils (){
+        $requete ="select nom, prenom, email, age from utilisateur ; " ;
+        $select = $this->unPDO->prepare ($requete);
+        $select->execute ();
+        return $select->fetchAll();
+    }
+
+    public function updateProfil ($tab){
+        $requete="update utilisateur set nom =:nom, prenom=:prenom, email=:email, age=:age where id_user=:id_user;";
+        $donnees=array(
+            ":nom"=>$tab['nom'],
+            ":prenom"=>$tab['prenom'],
+            ":email"=>$tab['email'],
+            ":age"=>$tab['age'],
+            ":id_user"=>$tab['id_user'],
+        );
+        $select = $this->unPDO->prepare ($requete);
+        $select->execute ($donnees);
+    }
+
 
 }
 

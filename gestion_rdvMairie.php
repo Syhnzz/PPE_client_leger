@@ -40,12 +40,9 @@ if (isset($_GET['action']) && isset($_GET['id_rdv']))
     if (isset($_POST['Valider']))
     {
         $unControleur->insertRDVMairie ($_POST);
+        redirect("./index.php?page=14");
     }
 
 ?>
 
 <?php endif; ?>
-
-<?php
-require_once("common/footer.html")
-?>

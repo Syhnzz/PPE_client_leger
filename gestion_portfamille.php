@@ -42,6 +42,7 @@ require_once("controleur/controleur.php");
     if (isset($_POST['Valider']))
     {
         $unControleur->insertEnfant ($_POST);
+        redirect("./index.php?page=14");
     }
     if (isset($_POST['Modifier']))
     {

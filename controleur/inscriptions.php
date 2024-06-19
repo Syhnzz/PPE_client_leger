@@ -50,7 +50,7 @@ class inscriptions {
         $data['mdp'] = password_hash($data['mdp'], PASSWORD_DEFAULT);
 
         if($this->inscriptionModel->register($data)){
-            redirect("../index.php?page=4");
+            redirect("../index.php?page=13");
         }else{
             die("Erreur 404");
         }

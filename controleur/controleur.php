@@ -73,6 +73,15 @@ class Controleur {
     public function updateEnfant ($tab){
         $this->unModele->updateEnfant ($tab);
     }
+
+    /************************ GESTION DES PROFILS  *******************/
+    public function selectAllProfils (){
+        return $this->unModele->selectAllProfils();
+    }
+    
+    public function updateProfil ($tab){
+        $this->unModele->updateProfil ($tab);
+    }
 }
 
 

@@ -7,6 +7,8 @@
 <p>Vous souhaitez prendre rendez-vous pour faire une demande de carte d’identité 
     ou de passeport c'est ici</p>
 
+<center>
+
     <form method="post">
         <table>
             <tr>
@@ -37,3 +39,5 @@
     </table>
     
     </form>
+
+</center>
